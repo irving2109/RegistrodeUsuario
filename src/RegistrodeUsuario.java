@@ -35,3 +35,22 @@ public class RegistrodeUsuario {
 
         scanner.close();
     }
+
+    private static boolean validarNombre(String nombre) {
+        Pattern patrón = Pattern.compile("^[a-zA-Z ]+$");
+        Matcher matcher = patrón.matcher(nombre);
+        return matcher.matches();
+    }
+
+    private static boolean validarCorreoElectronico(String correo) {
+        Pattern patrón = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+        Matcher matcher = patrón.matcher(correo);
+        return matcher.matches();
+    }
+
+    private static boolean validarContraseña(String contraseña) {
+        Pattern patrón = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        Matcher matcher = patrón.matcher(contraseña);
+        return matcher.matches();
+    }
+}
